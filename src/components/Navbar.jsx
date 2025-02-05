@@ -1,8 +1,10 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom"; // Import Link
+import logo from "../assets/tklbn-logo.png"; // Import your logo
 
 const Navbar = () => {
   return (
-      <nav className="h-16 flex items-center justify-between bg-maroon px-6 font-montserrat mb-12">
+    <nav className="h-16 flex items-center justify-between bg-maroon px-6 font-montserrat mb-12">
       <div className="flex items-center">
         <img src={logo} alt="Takluban Logo" className="h-10" />
       </div>
@@ -24,4 +26,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar
+export default Navbar;

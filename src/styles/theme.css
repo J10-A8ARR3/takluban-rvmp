@@ -1,0 +1,15 @@
+@layer theme {
+    :root {
+      --primary-color: #800000;
+      --font-primary: "Montserrat", sans-serif;
+    }
+  }
+  
+  .bg-maroon {
+    background-color: var(--primary-color);
+  }
+  
+  .font-montserrat {
+    font-family: var(--font-primary);
+  }
+  
