@@ -24,7 +24,7 @@ const Index = () => {
   }, [showLoader]);
 
   return (
-    <div className="font-montserrat flex items-center justify-center min-h-screen">
+    <div className="font-montserrat flex items-center justify-center mt-52">
       {showLoader ? (
         <div id="loader" className="fixed inset-0 flex items-center justify-center bg-black">
           <video autoPlay muted loop id="loadingVideo" className="w-full h-full object-cover">
@@ -34,14 +34,14 @@ const Index = () => {
       ) : (
         <div className="flex flex-col items-center text-center">
           <img src={logo} alt="Takluban Logo" className="mb-4" />
-          <h1 className="text-2xl font-bold text-gray-800 leading-tight">
+          <h1 className="text-2xl font-bold text-gray-800 leading-tight italic">
             INTEGRATING POS TAGGING AND RULE GENERATION
             <br /> IN MULTILINGUAL FILIPINO NATIVE LANGUAGE
             <br /> PROFANE DETECTION
           </h1>
           <div className="mt-6">
             <button 
-              className="px-6 py-2 text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-700"
+              className="px-6 py-2 text-white bg-maroon rounded-lg shadow-md font-bold hover:bg-maroon-dark"
               onClick={handleContinue}
             >
               CONTINUE

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
-
+import Home from "./pages/Home"; 
 function App() {
   return (
     <Router>
@@ -13,7 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/index" replace />} />
             <Route path="/index" element={<Index />} />
-            <Route path="/home" element={<h1 className="text-center mt-10">Home Page</h1>} />
+            <Route path="/home" element={<Home />} /> 
             <Route path="/creator" element={<h1 className="text-center mt-10">About Us</h1>} />
             <Route path="/faqs" element={<h1 className="text-center mt-10">FAQs</h1>} />
           </Routes>

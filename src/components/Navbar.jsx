@@ -1,8 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom"; 
-import logo from "../assets/tklbn-logo.png"; 
+import { NavLink, useLocation } from "react-router-dom";
+import logo from "../assets/tklbn-logo.png";
 
 const Navbar = () => {
+  const location = useLocation();
+
   return (
     <nav className="h-16 flex items-center justify-between bg-maroon px-6 font-montserrat">
       <div className="flex items-center">
@@ -13,10 +15,16 @@ const Navbar = () => {
       </span>
       <div className="flex space-x-6">
         <NavLink 
-          to="/" 
+          to="/home" 
           className={({ isActive }) => 
             `text-white text-sm uppercase transition duration-300 hover:text-yellow-400 ${isActive ? 'font-bold' : ''}`
           }
+          
+          onClick={(ensure) => {
+            if (location.pathname === '/home') {
+              ensure.preventDefault(); 
+            }
+          }}
         >
           Home
         </NavLink>
