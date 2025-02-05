@@ -9,14 +9,15 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="flex-grow">
-          {/* Example Routes */}
+      
           <Routes>
             <Route path="/" element={<h1 className="text-center mt-10">Home Page</h1>} />
             <Route path="/creator" element={<h1 className="text-center mt-10">About Us</h1>} />
             <Route path="/faqs" element={<h1 className="text-center mt-10">FAQs</h1>} />
           </Routes>
+          
         </div>
-        <Footer /> {/* Footer at the bottom */}
+        <Footer /> 
       </div>
     </Router>
   );
