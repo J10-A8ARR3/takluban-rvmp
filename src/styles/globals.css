@@ -12,7 +12,7 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Ensure content starts from the top */
-    min-height: 100vh; /* Use full height */
+    justify-content: flex-start; 
+    min-height: 100vh;
   }
 }
