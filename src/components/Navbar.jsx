@@ -12,7 +12,7 @@ const Navbar = () => {
         Filipino Native Language Profane Detection
       </span>
       <div className="flex space-x-6">
-        <Link to="/" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400 font-semibold">
+        <Link to="/" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400">
           Home
         </Link>
         <Link to="/creator" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400">
