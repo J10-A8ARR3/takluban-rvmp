@@ -4,7 +4,7 @@ import logo from "../assets/tklbn-logo.png";
 
 const Navbar = () => {
   return (
-    <nav className="h-16 flex items-center justify-between bg-maroon px-6 font-montserrat mb-12">
+    <nav className="h-16 flex items-center justify-between bg-maroon px-6 font-montserrat">
       <div className="flex items-center">
         <img src={logo} alt="Takluban Logo" className="h-10" />
       </div>

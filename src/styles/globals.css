@@ -9,10 +9,8 @@
     background-attachment: fixed;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding-bottom: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100vh;
   }
 }

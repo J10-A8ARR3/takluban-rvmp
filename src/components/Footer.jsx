@@ -3,7 +3,7 @@ import footerIcon from '../assets/tklbn-favicon.png';
 
 const Footer = () => {
   return (
-    <footer className="bg-maroon text-white text-center py-2 text-sm fixed bottom-0 w-full mt-12">
+    <footer className="bg-maroon text-white text-center py-2 text-sm fixed bottom-0 w-full">
       <img
         src={footerIcon} 
         alt="Footer Icon"

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import loadingVideo from "../assets/tklbn-loading.mp4";
+import logo from "../assets/tklbn-logo-xl.png";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -9,8 +10,8 @@ const Index = () => {
   const handleContinue = () => {
     setShowLoader(true);
     setTimeout(() => {
-      navigate("/");
-    }, 3000); // Adjust timing based on video length
+      navigate("/home");
+    }, 3000);
   };
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Index = () => {
   }, [showLoader]);
 
   return (
-    <div className="font-montserrat">
+    <div className="font-montserrat flex items-center justify-center min-h-screen">
       {showLoader ? (
         <div id="loader" className="fixed inset-0 flex items-center justify-center bg-black">
           <video autoPlay muted loop id="loadingVideo" className="w-full h-full object-cover">
@@ -31,8 +32,8 @@ const Index = () => {
           </video>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center">
-          <img src="/static/assets/tklbn-logo-xl.png" alt="Takluban Logo" className="h-24 mb-4" />
+        <div className="flex flex-col items-center text-center">
+          <img src={logo} alt="Takluban Logo" className="mb-4" />
           <h1 className="text-2xl font-bold text-gray-800 leading-tight">
             INTEGRATING POS TAGGING AND RULE GENERATION
             <br /> IN MULTILINGUAL FILIPINO NATIVE LANGUAGE
