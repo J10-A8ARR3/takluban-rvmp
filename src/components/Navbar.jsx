@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { NavLink } from "react-router-dom"; 
 import logo from "../assets/tklbn-logo.png"; 
 
 const Navbar = () => {
@@ -12,15 +12,30 @@ const Navbar = () => {
         Filipino Native Language Profane Detection
       </span>
       <div className="flex space-x-6">
-        <Link to="/" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400">
+        <NavLink 
+          to="/" 
+          className={({ isActive }) => 
+            `text-white text-sm uppercase transition duration-300 hover:text-yellow-400 ${isActive ? 'font-bold' : ''}`
+          }
+        >
           Home
-        </Link>
-        <Link to="/creator" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400">
+        </NavLink>
+        <NavLink 
+          to="/creator" 
+          className={({ isActive }) => 
+            `text-white text-sm uppercase transition duration-300 hover:text-yellow-400 ${isActive ? 'font-bold' : ''}`
+          }
+        >
           About Us
-        </Link>
-        <Link to="/faqs" className="text-white text-sm uppercase transition duration-300 hover:text-yellow-400">
+        </NavLink>
+        <NavLink 
+          to="/faqs" 
+          className={({ isActive }) => 
+            `text-white text-sm uppercase transition duration-300 hover:text-yellow-400 ${isActive ? 'font-bold' : ''}`
+          }
+        >
           FAQs
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );

@@ -1,3 +1,18 @@
-@import 'tailwindcss'
+@import "tailwindcss";
 
-
+@layer base {
+  body {
+    background-image: url('../assets/tklbn-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+  }
+}
