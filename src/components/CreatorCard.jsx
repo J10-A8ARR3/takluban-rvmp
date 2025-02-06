@@ -2,16 +2,16 @@ import React from 'react';
 
 const CreatorCard = ({ creator }) => {
   return (
-    <div className="creator-box">
+    <div className="w-[290px] h-[320px] p-4 bg-[#F9EFEF] shadow-md border-2 border-gray-300 rounded-md flex flex-col items-center text-center box-border">
       <img 
-        src={`/static/assets/${creator.img}`} 
+        src={creator.img} 
         alt={creator.name} 
-        className="creator-image" 
+        className="w-[170px] h-[190px] rounded-full object-cover shadow-md" 
       />
-      <p className="creator-name">{creator.name}</p>
-      <p className="creator-role">{creator.role}</p>
-      <p className="creator-degree">{creator.degree}</p>
-      <p className="creator-school">{creator.school}</p>
+      <p className="text-lg font-bold">{creator.name}</p>
+      <p className="text-md font-semibold italic">{creator.role}</p>
+      <p className="text-sm font-bold">{creator.degree}</p>
+      <p className="text-xs">{creator.school}</p>
     </div>
   );
 };

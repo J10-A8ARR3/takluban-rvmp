@@ -4,6 +4,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Home from "./pages/Home"; 
+import Creators from "./pages/Creators";
+
+
 function App() {
   return (
     <Router>
@@ -14,7 +17,7 @@ function App() {
             <Route path="/" element={<Navigate to="/index" replace />} />
             <Route path="/index" element={<Index />} />
             <Route path="/home" element={<Home />} /> 
-            <Route path="/creator" element={<h1 className="text-center mt-10">About Us</h1>} />
+            <Route path="/creator" element={<Creators />} />
             <Route path="/faqs" element={<h1 className="text-center mt-10">FAQs</h1>} />
           </Routes>
         </div>
