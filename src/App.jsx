@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Index from "./pages/Index";
 import Home from "./pages/Home"; 
 import Creators from "./pages/Creators";
+import FAQs from "./pages/FAQs";
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
             <Route path="/index" element={<Index />} />
             <Route path="/home" element={<Home />} /> 
             <Route path="/creator" element={<Creators />} />
-            <Route path="/faqs" element={<h1 className="text-center mt-10">FAQs</h1>} />
+            <Route path="/faqs" element={<FAQs />} />
           </Routes>
         </div>
         <Footer />
