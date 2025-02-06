@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSpring, animated } from 'react-spring'; // Importing react-spring hooks for animations
+import { useSpring, animated } from 'react-spring'; 
 import CreatorCard from '../components/CreatorCard';
 
 import Creator1 from '../assets/creators/tklbn-creator-1.png';
 import Creator2 from '../assets/creators/tklbn-creator-2.png';
 import Creator3 from '../assets/creators/tklbn-creator-3.png';
 import Creator4 from '../assets/creators/tklbn-creator-4.png';
-import TaklubanLogo from '../assets/tklbn-logo-xl.png'; // Logo import
+import TaklubanLogo from '../assets/tklbn-logo-xl.png'; 
 
 const creators = [
   { name: 'ABARRE, Jeo C.', role: 'Developer', degree: 'BS Computer Science', school: 'Polytechnic University of the Philippines - Sta. Mesa, Manila', img: Creator1 },
@@ -16,7 +16,6 @@ const creators = [
 ];
 
 const Creators = () => {
-  // Animation for the creator cards using react-spring
   const animationProps = useSpring({
     opacity: 1,
     transform: 'translateY(0px)',
@@ -45,7 +44,7 @@ const Creators = () => {
         <h2 className="text-2xl font-bold mb-5">MEET THE CREATORS</h2>
         <div className="grid grid-cols-2 gap-3 gap-x-25">
           {creators.map((creator, index) => (
-            <animated.div style={animationProps} key={index}> {/* Apply animation to each card */}
+            <animated.div style={animationProps} key={index}> 
               <CreatorCard creator={creator} />
             </animated.div>
           ))}
