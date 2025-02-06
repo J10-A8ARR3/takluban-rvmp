@@ -16,7 +16,9 @@ const Navbar = () => {
       <div className="flex items-center">
         <img src={logo} alt="Takluban Logo" className="h-10" />
       </div>
-      <span className="text-white text-lg font-bold uppercase tracking-wide text-center flex-grow fixed left-1/2 transform -translate-x-1/2">
+      
+      {/* Fixed position for the text */}
+      <span className="text-white text-lg font-bold uppercase tracking-wide text-center absolute left-1/2 transform -translate-x-1/2">
         Filipino Native Language Profane Detection
       </span>
       
