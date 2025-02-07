@@ -1,0 +1,11 @@
+pyspark
+nlu
+nltk
+pandas
+scikit-learn
+flask
+psutil
+matplotlib
+seaborn
+joblib
+openpyxl
