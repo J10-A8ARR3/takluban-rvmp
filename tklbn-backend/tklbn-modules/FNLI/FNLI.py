@@ -29,8 +29,8 @@ class DictionaryGenerator:
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
         noise_words = {
             'Tagalog': {"nang", "mga", "kung", "yan", "ko", "po"},
-            'Bikol': {"ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "na"},
-            'Cebuano': {"dayon", "gani", "kana","ka","mao", "pud", "bitaw"}
+            'Bikol': {"ngani",  "kang", "iyo", "hali", "baga", "ho", "mo", "na"},
+            'Cebuano': {"dayon", "gani", "kana", "mao", "pud", "bitaw"}
         }
         noise_words['English'] = self.load_english_noise_words()
 
@@ -239,7 +239,11 @@ if __name__ == "__main__":
           f"Recall: {recall:.2f}\n"
           f"F1 Score: {f1:.2f}")
 
-    # Determine the dominant language from sentences
-    sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
-    dominant_language = language_identifier.determine_language(sentences)
-    print(f"The dominant language is: {dominant_language}")
+    # Command-line input for language identification
+    while True:
+        user_input = input("\nEnter a sentence to identify its language (or type 'exit' to quit): ").strip()
+        if user_input.lower() == 'exit':
+            print("Exiting the program. Goodbye!")
+            break
+        predicted_language = language_identifier.predict_language(user_input)
+        print(f"Predicted Language: {predicted_language.capitalize()}")
