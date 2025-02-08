@@ -4,12 +4,10 @@ import csv
 
 class TextPreprocessor:
     def __init__(self, language):
-        # Updated base path to match new directory structure
-        base_path = "../tklbn-rvmp"
-        self.input_file = os.path.join(base_path, f"datasets/RAW/dataset_{language}.csv")
-        self.output_file = os.path.join(base_path, f"datasets/RAW/preprocessed_{language}.csv")
+        base_path = "../takluban-rvmp"
+        self.input_file = os.path.join(base_path, f"tklbn-backend/datasets/RAW/dataset_{language}.csv")
+        self.output_file = os.path.join(base_path, f"tklbn-backend/datasets/RAW/preprocessed_{language}.csv")
 
-        # Ensure the directories exist
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
 
@@ -39,7 +37,7 @@ class TextPreprocessor:
                 reader = csv.reader(infile)
                 writer = csv.writer(outfile)
 
-                header = next(reader)  # Skip header row
+                header = next(reader) 
                 writer.writerow(header)
 
                 # Process each row

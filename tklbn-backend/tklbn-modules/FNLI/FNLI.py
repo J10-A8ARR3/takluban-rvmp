@@ -12,10 +12,12 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 class DictionaryGenerator:
     def __init__(self, preprocessed_dir, dictionary_dir, english_dict_path, language):
-        self.language = language  # Add language to the instance
-        self.input_file = f"../datasets/FNLI/RAW/preprocessed_{language}.csv"
-        self.output_file = f"../datasets/FNLI/RAW/preprocessed_{language}.csv"
-        self.english_dict_path = english_dict_path
+        base_path = "../takluban-rvmp"
+        results_folder = f"{base_path}/datasets"
+        self.language = language  
+        self.input_file = f"{results_folder}/RAW/preprocessed_{language}.csv"
+        self.output_file = f"{results_folder}/RAW/preprocessed_{language}.csv"
+        self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
@@ -157,7 +159,7 @@ class ModelTraining:
         model.fit(X_train, y_train)
 
         # Save the trained model to a file
-        model_path = "../tklbn-modules/FNLI/saved_model.pkl"
+        model_path = "../takluban-rvmp/tklbn-backend/tklbn-modules/FNLI/saved_model.pkl"
         joblib.dump(model, model_path)  # Save the model to a .pkl file
         print(f"Model saved at {model_path}")
 
@@ -202,19 +204,19 @@ def run_preprocessing(preprocess_script):
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while running the preprocessing: {e}")
     except FileNotFoundError:
-        print("Error: preProcess.py file not found.")
+        print("Error: preprocess.py file not found.")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
 
 if __name__ == "__main__":
     # Run preprocessing first
-    preprocess_script = "../tklbn-modules/FNLI/preProcess.py"
+    preprocess_script = "../takluban-rvmp/tklbn-backend/tklbn-modules/FNLI/preProcess.py"
     run_preprocessing(preprocess_script)
 
     # Proceed with dictionary generation
-    preprocessed_dir = "../datasets/FNLI/RAW"
-    dictionary_dir = "../datasets/FNLI/FNLI-Dictionary/"
-    english_dict_path = "../datasets/FNLI-Dictionary/english_dictionary.csv"
+    preprocessed_dir = "../takluban-rvmp/tklbn-backend/datasets/RAW"
+    dictionary_dir = "../takluban-rvmp/tklbn-backend/datasets/FNLI-Dictionary"
+    english_dict_path = "../takluban-rvmp/tklbn-backend/datasets/FNLI-Dictionary/english_dictionary.csv"
 
     languages = ['tagalog', 'bikol', 'cebuano']
 
@@ -226,4 +228,18 @@ if __name__ == "__main__":
     trainer = ModelTraining(dictionary_dir)
     model, X_test, y_test = trainer.train_model()
 
-    # Language identification using the trained
+    # Language identification using the trained model
+    language_identifier = LanguageIdentification(model, X_test, y_test)
+
+    # Evaluate the model
+    accuracy, precision, recall, f1 = language_identifier.evaluate_model()
+    print(f"Model Evaluation Metrics on Test Set:\n"
+          f"Accuracy: {accuracy:.2f}\n"
+          f"Precision: {precision:.2f}\n"
+          f"Recall: {recall:.2f}\n"
+          f"F1 Score: {f1:.2f}")
+
+    # Determine the dominant language from sentences
+    sentences = ["kagulo gulo ang patal na ini"]  # Replace with actual sentences
+    dominant_language = language_identifier.determine_language(sentences)
+    print(f"The dominant language is: {dominant_language}")
