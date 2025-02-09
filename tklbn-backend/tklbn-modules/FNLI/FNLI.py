@@ -15,8 +15,8 @@ class DictionaryGenerator:
         base_path = "../takluban-rvmp"
         results_folder = f"{base_path}/tklbn-backend/datasets"
         self.language = language  
-        self.input_file = f"{results_folder}/RAW/preprocessed_{language}.csv"
-        self.output_file = f"{results_folder}/RAW/preprocessed_{language}.csv"
+        self.input_file = f"{results_folder}/RAW/PREPROCESS/preprocessed_{language}.csv"
+        self.output_file = f"{results_folder}/RAW/PROCESSED/preprocessed_{language}.csv"
         self.english_dict_path = f"{dictionary_dir}/english_dictionary.csv"
         self.preprocessed_dir = preprocessed_dir  # Ensure the directory paths are available
         self.dictionary_dir = dictionary_dir

@@ -6,7 +6,7 @@ class TextPreprocessor:
     def __init__(self, language):
         base_path = "../takluban-rvmp"
         self.input_file = os.path.join(base_path, f"tklbn-backend/datasets/RAW/dataset_{language}.csv")
-        self.output_file = os.path.join(base_path, f"tklbn-backend/datasets/RAW/preprocessed_{language}.csv")
+        self.output_file = os.path.join(base_path, f"tklbn-backend/datasets/RAW/PREPROCESS/preprocessed_{language}.csv")
 
         os.makedirs(os.path.dirname(self.input_file), exist_ok=True)
         os.makedirs(os.path.dirname(self.output_file), exist_ok=True)
