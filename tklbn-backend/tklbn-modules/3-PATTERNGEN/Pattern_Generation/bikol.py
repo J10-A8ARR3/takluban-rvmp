@@ -131,11 +131,11 @@ class PatternGenerator:
         )
     
 def main():
-    base_path = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION"
-    predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
-    profane_dictionary_path = 'PATTERN_GENERATION/profane_dictionary.csv'
+    base_path = "../takluban-rvmp"
+    predefined_rules_path = f"{base_path}/tklbn-backend/tklbn-modules/3-PATTERNGEN/Pattern_Generation/predefined_rules.csv"
+    model_filename = '../2-POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
+    path_to_jar = '../2-POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+    profane_dictionary_path = 'Pattern_Generation/profane_dictionary.csv'
     
     def load_profane_dictionary():
         profane_dict = {}
