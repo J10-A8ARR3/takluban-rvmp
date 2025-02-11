@@ -13,7 +13,7 @@ from tklbn_modules.PATTERNGEN.Pattern_Generation.bikol import PatternGenerator a
 from tklbn_modules.PATTERNGEN.Pattern_Generation.cebuano import PatternGenerator as CebuanoPatternGenerator
 
 # Define the path to save the results
-output_file = "../takluban-rvmp/takluban-backend/datasets/OUTPUT/POSdata.csv"
+output_file = "../takluban-rvmp/tklbn-backend/datasets/OUTPUT/POSdata.csv"
 profanity_dictionary_file = "../takluban-rvmp/tklbn-backend/tklbn_modules/PATTERNGEN/Pattern_Generation/profane_dictionary.csv"
 
 # Check if the CSV file already exists. If not, create it and add a header
@@ -69,9 +69,9 @@ def train_model_if_not_exists(model_path, dictionary_dir):
         return model, [], []
 
 def get_pattern_generator(language):
-    predefined_rules_path = "../takluban-rvmp/tklbn-backend/tklbn_modules/PATTERNGEN/Pattern_Generation/predefined_rules.csvv"
-    model_filename = '../POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = '../POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+    predefined_rules_path = "../takluban-rvmp/tklbn-backend/tklbn_modules/PATTERNGEN/Pattern_Generation/predefined_rules.csv"
+    model_filename = '../takluban-rvmp/tklbn-backend/tklbn_modules/POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
+    path_to_jar = '../takluban-rvmp/tklbn-backend/tklbn_modules/POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
     if language == 'tagalog':
         return TagalogPatternGenerator(predefined_rules_path, model_filename, path_to_jar)
     elif language == 'bikol':
@@ -118,12 +118,12 @@ def display_output(language, sentence, pos_tagged, censored_sentence, is_profane
     print(f"Sentence '{sentence}' saved with the detected language and POS tagging result.\n")
 
 def main():
-    model_path = "../tklbn-backend/tklbn_modules/FNLI/saved_model.pkl"
-    dictionary_dir = "../tklbn-backend/datasets/FNLI-Dictionary"
+    model_path = "../takluban-rvmp/tklbn-backend/tklbn_modules/FNLI/saved_model.pkl"
+    dictionary_dir = "../takluban-rvmp/tklbn-backend/datasets/FNLI-Dictionary"
     model, X_test, y_test = train_model_if_not_exists(model_path, dictionary_dir)
     language_identifier = LanguageIdentification(model=model, X_test=X_test, y_test=y_test)
     supported_languages = {'tagalog', 'bikol', 'cebuano'}
-    svm_model_path = "trained_profane_model.pkl"
+    svm_model_path = "../takluban-rvmp/tklbn-backend/trained_profane_model.pkl"
     svm_model = joblib.load(svm_model_path)
     
     while True:
