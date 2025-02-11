@@ -5,8 +5,8 @@ from nltk.tag.stanford import StanfordPOSTagger
 class StanfordPOSTaggerWrapper:
     def __init__(self):
         base_path = "../takluban-rvmp"
-        self.model_path = "tklbn-backend/tklbn-modules/2-POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger"
-        self.jar_path = "tklbn-backend/tklbn-modules/2-POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar"
+        self.model_path = "tklbn-backend/tklbn-modules/POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger"
+        self.jar_path = "tklbn-backend/tklbn-modules/POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar"
 
         # Initialize the Stanford POS Tagger with Java heap optimization
         self.tagger = StanfordPOSTagger(

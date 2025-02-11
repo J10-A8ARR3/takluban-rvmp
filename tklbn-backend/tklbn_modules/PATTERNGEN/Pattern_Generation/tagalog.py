@@ -133,8 +133,8 @@ class PatternGenerator:
 def main():
     base_path = "../takluban-rvmp"
     predefined_rules_path = f"{base_path}/tklbn-backend/tklbn-modules/3-PATTERNGEN/Pattern_Generation/predefined_rules.csv"
-    model_filename = '../2-POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = '../2-POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+    model_filename = '../POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
+    path_to_jar = '../POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
     profane_dictionary_path = 'Pattern_Generation/profane_dictionary.csv'
     
     def load_profane_dictionary():

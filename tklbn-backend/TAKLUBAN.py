@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import re
-from LanguageIdentification.FNLI import LanguageIdentification, ModelTraining
-from PATTERN_GENERATION.tagalog import PatternGenerator as TagalogPatternGenerator
-from PATTERN_GENERATION.bikol import PatternGenerator as BikolPatternGenerator
-from PATTERN_GENERATION.cebuano import PatternGenerator as CebuanoPatternGenerator
+from tklbn_modules.FNLI.FNLI import LanguageIdentification, ModelTraining
+from tklbn_modules.PATTERNGEN.Pattern_Generation.tagalog import PatternGenerator as TagalogPatternGenerator
+from tklbn_modules.PATTERNGEN.Pattern_Generation.bikol import PatternGenerator as BikolPatternGenerator
+from tklbn_modules.PATTERNGEN.Pattern_Generation.cebuano import PatternGenerator as CebuanoPatternGenerator
 
 # Define the path to save the results
 output_file = "../TAKLUBAN-FILIPINO-NATIVE-LANGUAGE-PROFANE-DETECTION/POSdata.csv"
