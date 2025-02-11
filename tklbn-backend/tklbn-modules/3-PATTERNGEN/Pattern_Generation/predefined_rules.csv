@@ -1,0 +1,34 @@
+Rule Name,POS Pattern,Description
+adj_noun,JJD NNC,Profane Adjective followed by Noun
+verb_noun,VBW NNC,Profane Verb followed by Noun
+foreign_curse,FW,Foreign Curse Word
+adj_repeated,JJD JJD,Repeated Profane Adjectives
+verb_adj_noun,VBS JJD NNC,Verb followed by Adjective and Noun
+pronoun_verb,PRS VBW,Pronoun followed by Verb (possible command or insult)
+curse_verb_noun,FW VBW NNC,Foreign Curse followed by Verb and Noun
+new_adj_noun_rule,JJD PRS NNC,Profane Adjective-Pronoun-Noun
+rule_from_sentence_12,FW CCP NNC,Profane sentence example
+rule_from_sentence_10,JJCC PRS VBOF PRS RBI PRP PRL,Profane sentence example
+rule_from_sentence_11,FW CCA NNC,Profane sentence example
+rule_from_sentence_12,NNP NNC NNC,Profane sentence example
+rule_from_sentence_13,FW NNC NNC,Profane sentence example
+rule_from_sentence_14,FW DTC NNC,Profane sentence example
+rule_from_sentence_15,FW DTC NNC NNC,Profane sentence example
+rule_from_sentence_16,JJCC PRS NNC,Profane sentence example
+rule_from_sentence_17,RBW RBW VBTF PRS,Profane sentence example
+rule_from_sentence_18,JJD RBT DTP FW CCA NNC,Profane sentence example
+rule_from_sentence_19,NNC CCP NNC CCP PRS,Profane sentence example
+rule_from_sentence_20,FW CCT CCP JJD JJD RBI PRO,Profane sentence example
+rule_from_sentence_21,VBAF RBT PRP,Profane sentence example
+rule_from_sentence_22,VBTR JJD CCP NNC,Profane sentence example
+rule_from_sentence_23,JJD PRS RBT,Profane sentence example
+rule_from_sentence_24,CCT RBF RBI CCR PRS PRO,Profane sentence example
+rule_from_sentence_25,CCP JJD CCB JJD NNC,Profane sentence example
+rule_from_sentence_26,JJD CCP NNC,Profane sentence example
+rule_from_sentence_27,VBAF PRS NNC CCP VBS,Profane sentence example
+rule_from_sentence_28,PRC PRS RBI,Profane sentence example
+rule_from_sentence_29,RBM PRS NNC,Profane sentence example
+rule_from_sentence_30,RBD PRS RBT CCT NNC,Profane sentence example
+rule_from_sentence_31,NNC PRS NNC,Profane sentence example
+rule_from_sentence_32,JJD PRS CCP FW RBT,Profane sentence example
+rule_from_sentence_33,JJD PRS RBD,Profane sentence example

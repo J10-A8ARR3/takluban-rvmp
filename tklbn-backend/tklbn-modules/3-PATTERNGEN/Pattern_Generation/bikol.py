@@ -232,7 +232,7 @@ def main():
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
-    df = pd.read_csv('Results/dataset/dataset_bikol.csv')
+    df = pd.read_csv('../takluban-rvmp/tklbn-backend/datasets/RAW/dataset_bikol.csv')
     
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)

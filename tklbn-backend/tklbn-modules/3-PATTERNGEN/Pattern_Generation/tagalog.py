@@ -132,10 +132,10 @@ class PatternGenerator:
     
 def main():
     base_path = "../takluban-rvmp"
-    predefined_rules_path = f"{base_path}/PATTERN_GENERATION/predefined_rules.csv"
-    model_filename = 'Modules/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
-    path_to_jar = 'Modules/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
-    profane_dictionary_path = 'PATTERN_GENERATION/profane_dictionary.csv'
+    predefined_rules_path = f"{base_path}/tklbn-backend/tklbn-modules/3-PATTERNGEN/Pattern_Generation/predefined_rules.csv"
+    model_filename = '../2-POS/FSPOST/filipino-left5words-owlqn2-distsim-pref6-inf2.tagger'
+    path_to_jar = '../2-POS/FSPOST/stanford-postagger-full-2020-11-17/stanford-postagger.jar'
+    profane_dictionary_path = 'Pattern_Generation/profane_dictionary.csv'
     
     def load_profane_dictionary():
         profane_dict = {}
@@ -236,7 +236,7 @@ def main():
     pattern_generator.save_patterns_from_sentence(predefined_rules_path, sentence, "Profane sentence example")
     
     # Load your dataset
-    df = pd.read_csv('Results/dataset/dataset_tagalog.csv')
+    df = pd.read_csv('../takluban-rvmp/tklbn-backend/datasets/RAW/dataset_tagalog.csv')
     
     # Split the data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(df['sentence'], df['profane'], test_size=0.5, random_state=48)
