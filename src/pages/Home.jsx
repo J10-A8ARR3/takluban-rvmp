@@ -32,25 +32,33 @@ const Home = () => {
     setInputText(words.join(" "));
   };
 
-  const handleDetect = async () => {
-    try {
-      const response = await fetch("/detect_language", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `text=${encodeURIComponent(inputText)}`,
-      });
-
-      const data = await response.json();
-
-      setDetectedLanguage(data.predicted_language || "Error detecting language");
-      setPosTaggedSentence(data.pos_tagged_sentence || "Error processing the sentence.");
-      setCensoredSentence(data.censored_sentence || "Error processing the sentence.");
-    } catch (error) {
-      console.error("Error:", error);
-      setDetectedLanguage("Error detecting language");
-      setPosTaggedSentence("Error processing the sentence.");
-      setCensoredSentence("Error processing the sentence.");
+  const handleDetect = () => {
+    const inputText = document.getElementById("text-area").value.trim();
+  
+    if (!inputText) {
+      alert("Please enter text to detect language.");
+      return;
     }
+  
+    fetch("http://127.0.0.1:5000/detect_language", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ text: inputText }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Response:", data);
+        if (data.error) {
+          alert(`Error: ${data.error}`);
+        } else {
+          document.getElementById("detected-language").innerText = data.predicted_language;
+          document.getElementById("pos-tagged-sentence").innerText = data.pos_tagged_sentence;
+          document.getElementById("censored-sentence").innerText = data.censored_sentence;
+        }
+      })
+      .catch((error) => console.error("Error:", error));
   };
 
   return (

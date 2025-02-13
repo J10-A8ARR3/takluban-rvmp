@@ -158,9 +158,15 @@ class ModelTraining:
         model = grid_search.best_estimator_
         model.fit(X_train, y_train)
 
-        # Save the trained model to a file
-        model_path = "../takluban-rvmp/tklbn-backend/tklbn-modules/FNLI/saved_model.pkl"
-        joblib.dump(model, model_path)  # Save the model to a .pkl file
+        # Define the model path
+        model_path = os.path.abspath("../tklbn-backend/tklbn-modules/FNLI/saved_model.pkl")
+
+        # Ensure the directory exists before saving
+        model_dir = os.path.dirname(model_path)
+        if not os.path.exists(model_dir):
+            os.makedirs(model_dir, exist_ok=True)  # ✅ Fix: Create the missing directory
+
+        joblib.dump(model, model_path)  # ✅ Save the trained model
         print(f"Model saved at {model_path}")
 
         return model, X_test, y_test
