@@ -21,25 +21,25 @@ const Home = () => {
   }, [visited]);
 
   const handleTextChange = (e) => {
-    let words = e.target.value.split(/\s+/).filter((word) => word.length > 0);
+    let text = e.target.value;
+    let words = text.trim().split(/\s+/);
     let wordsLeft = maxWords - words.length;
 
     if (words.length > maxWords) {
-      words = words.slice(0, maxWords);
+      text = words.slice(0, maxWords).join(" ") + " ";
+      wordsLeft = 0;
     }
 
     setWordsLeft(wordsLeft >= 0 ? wordsLeft : 0);
-    setInputText(words.join(" "));
+    setInputText(text);
   };
 
   const handleDetect = () => {
-    const inputText = document.getElementById("text-area").value.trim();
-  
-    if (!inputText) {
+    if (!inputText.trim()) {
       alert("Please enter text to detect language.");
       return;
     }
-  
+
     fetch("http://127.0.0.1:5000/detect_language", {
       method: "POST",
       headers: {
@@ -53,9 +53,9 @@ const Home = () => {
         if (data.error) {
           alert(`Error: ${data.error}`);
         } else {
-          document.getElementById("detected-language").innerText = data.predicted_language;
-          document.getElementById("pos-tagged-sentence").innerText = data.pos_tagged_sentence;
-          document.getElementById("censored-sentence").innerText = data.censored_sentence;
+          setDetectedLanguage(data.predicted_language || "No data available");
+          setPosTaggedSentence(data.pos_tagged_sentence || "No data available");
+          setCensoredSentence(data.censored_sentence || "No data available");
         }
       })
       .catch((error) => console.error("Error:", error));

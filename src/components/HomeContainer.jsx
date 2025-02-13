@@ -17,7 +17,7 @@ const HomeContainer = ({
           <textarea
             className="w-full h-[calc(100%-60px)] bg-[#F9EFEF] p-5 rounded-md text-lg italic placeholder-opacity-50 focus:outline-none resize-none overflow-y-auto"
             placeholder="To detect profanities, input text here and click 'DETECT'."
-            value={inputText} // Controlled input
+            value={inputText}
             onChange={handleTextChange}
           />
           <div className="text-left mt-4 font-bold text-xl">
