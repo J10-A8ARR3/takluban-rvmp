@@ -1,65 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import HomeContainer from '../components/HomeContainer';
+import React, { useEffect, useState } from "react";
+import HomeContainer from "../components/HomeContainer";
 
 const Home = () => {
-  const [visited, setVisited] = useState(sessionStorage.getItem('visited'));
+  const [visited, setVisited] = useState(sessionStorage.getItem("visited"));
   const [wordsLeft, setWordsLeft] = useState(10);
+  const [detectedLanguage, setDetectedLanguage] = useState("");
+  const [posTaggedSentence, setPosTaggedSentence] = useState("");
+  const [censoredSentence, setCensoredSentence] = useState("");
+  const [inputText, setInputText] = useState("");
+
   const maxWords = 10;
 
   useEffect(() => {
-    if (visited) {
-      // No loader, as it's removed
-    } else {
+    if (!visited) {
       setTimeout(() => {
-        sessionStorage.setItem('visited', 'true');
+        sessionStorage.setItem("visited", "true");
+        setVisited(true);
       }, 5900);
     }
   }, [visited]);
 
   const handleTextChange = (e) => {
-    const words = e.target.value.split(/\s+/).filter(word => word.length > 0);
-    const wordsLeft = maxWords - words.length;
-    setWordsLeft(wordsLeft >= 0 ? wordsLeft : 0);
+    let words = e.target.value.split(/\s+/).filter((word) => word.length > 0);
+    let wordsLeft = maxWords - words.length;
+
     if (words.length > maxWords) {
-      e.target.value = words.slice(0, maxWords).join(' ');
-      alert(`Word limit of ${maxWords} reached.`);
+      words = words.slice(0, maxWords);
     }
+
+    setWordsLeft(wordsLeft >= 0 ? wordsLeft : 0);
+    setInputText(words.join(" "));
   };
 
-  const handleDetect = () => {
-    const text = document.getElementById('text-area').value;
-
-    fetch('/detect_language', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `text=${encodeURIComponent(text)}`,
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.predicted_language) {
-          document.getElementById('detected-language').innerText = `${data.predicted_language}`;
-        } else {
-          document.getElementById('detected-language').innerText = 'Error detecting language';
-        }
-
-        if (data.pos_tagged_sentence) {
-          document.getElementById('pos-tagged-sentence').innerText = `${data.pos_tagged_sentence}`;
-        }
-
-        if (data.censored_sentence) {
-          document.getElementById('censored-sentence').innerText = `${data.censored_sentence}`;
-        } else {
-          document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('detected-language').innerText = 'Error detecting language';
-        document.getElementById('pos-tagged-sentence').innerText = 'Error processing the sentence.';
-        document.getElementById('censored-sentence').innerText = 'Error processing the sentence.';
+  const handleDetect = async () => {
+    try {
+      const response = await fetch("/detect_language", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `text=${encodeURIComponent(inputText)}`,
       });
+
+      const data = await response.json();
+
+      setDetectedLanguage(data.predicted_language || "Error detecting language");
+      setPosTaggedSentence(data.pos_tagged_sentence || "Error processing the sentence.");
+      setCensoredSentence(data.censored_sentence || "Error processing the sentence.");
+    } catch (error) {
+      console.error("Error:", error);
+      setDetectedLanguage("Error detecting language");
+      setPosTaggedSentence("Error processing the sentence.");
+      setCensoredSentence("Error processing the sentence.");
+    }
   };
 
   return (
@@ -68,6 +59,10 @@ const Home = () => {
         handleTextChange={handleTextChange}
         wordsLeft={wordsLeft}
         handleDetect={handleDetect}
+        inputText={inputText}
+        detectedLanguage={detectedLanguage}
+        posTaggedSentence={posTaggedSentence}
+        censoredSentence={censoredSentence}
       />
     </div>
   );
