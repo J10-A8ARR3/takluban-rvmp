@@ -28,9 +28,9 @@ class DictionaryGenerator:
     def initialize_noise_words(self):
         """Initialize common noise words for Tagalog, Bikol, Cebuano, and English."""
         noise_words = {
-            'Tagalog': {"nang", "mga", "kung", "yan", "ko", "po"},
-            'Bikol': {"ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "na"},
-            'Cebuano': {"dayon", "gani", "kana","ka","mao", "pud", "bitaw"}
+            'Tagalog': {"nang", "mga", "kung", "yan", "ko", "ka", "po"},
+            'Bikol': {"ngani", "ini", "kang", "iyo", "hali", "baga", "ho", "mo", "na", "ka"},
+            'Cebuano': {"dayon", "gani", "kana","mao", "pud", "bitaw"}
         }
         noise_words['English'] = self.load_english_noise_words()
 

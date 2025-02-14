@@ -12,8 +12,17 @@ To get a copy of this project, run the following command in your terminal:
 ```bash
 git clone https://github.com/J10-A8ARR3/takluban-rvmp.git
 ```
+
+### Install Required Dependencies
+Navigate to the project directory and install the required npm dependencies:
 ```bash
 cd takluban-rvmp
+npm install
+```
+# Run the Development Server
+After installing the dependencies, run the development server:
+```bash
+npm run dev
 ```
 
 ## Contributors

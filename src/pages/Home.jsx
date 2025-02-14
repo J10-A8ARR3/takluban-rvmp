@@ -7,12 +7,12 @@ const Home = () => {
   const [posTaggedSentence, setPosTaggedSentence] = useState(null);
   const [censoredSentence, setCensoredSentence] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [wordsLeft, setWordsLeft] = useState(100); // Example word limit
+  const [wordsLeft, setWordsLeft] = useState(10); // Example word limit
 
   const handleTextChange = (e) => {
     const text = e.target.value;
     setInputText(text);
-    setWordsLeft(10 - text.split(" ").length); // Example word limit logic
+    setWordsLeft(11 - text.split(" ").length); // Example word limit logic
   };
 
   const handleDetect = async () => {
